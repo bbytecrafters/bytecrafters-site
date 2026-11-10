@@ -1,0 +1,79 @@
+---
+import '../styles/global.css';
+import '../styles/layout.css';
+import '../styles/home.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="el">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="ByteCrafters - Full-service Digital Agency. Σχεδιασμός UI/UX, Custom Web Applications και SEO Optimization.">
+		<title>ByteCrafters | Digital Product Agency</title>
+		
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="tech-bg">
+		
+		<Navbar />
+
+		<main class="hero-agency">
+			<div class="hero-glow"></div>
+			<div style="z-index: 1;">
+				<h1 class="title-agency gradient-text">
+					Crafting Digital<br />Experiences Byte by Byte
+				</h1>
+				<p class="subtitle-agency">
+					Είμαστε ένα full-service digital agency. Σχεδιάζουμε και αναπτύσσουμε custom εφαρμογές, high-performance e-shops και UI/UX ψηφιακά προϊόντα με εμμονή στην ταχύτητα.
+				</p>
+				<a href="/epikoinonia" class="btn-neon">Ξεκινήστε το Project σας</a>
+			</div>
+		</main>
+
+		<section id="services" class="services-section">
+			<span class="section-tag">Τι κάνουμε</span>
+			<h2 class="section-title">Full-Service Υπηρεσίες</h2>
+
+			<div class="bento-grid">
+				<div class="bento-card size-large">
+					<h3>Custom Web & App Development</h3>
+					<p>Αναπτύσσουμε custom εφαρμογές και websites που φορτώνουν ακαριαία. Χτίζουμε το μέλλον του web με modern stacks.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Astro</span>
+						<span class="tech-badge">React</span>
+						<span class="tech-badge">Next.js</span>
+					</div>
+				</div>
+
+				<div class="bento-card">
+					<h3>UI/UX Product Design</h3>
+					<p>Δημιουργούμε καθηλωτικά και διαισθητικά interfaces στο Figma, εστιάζοντας στο UX.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Figma</span>
+					</div>
+				</div>
+
+				<div class="bento-card">
+					<h3>E-commerce Ecosystems</h3>
+					<p>Από custom Shopify setups μέχρι headless commerce λύσεις.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Shopify</span>
+					</div>
+				</div>
+
+				<div class="bento-card size-large">
+					<h3>Performance Optimization & SEO</h3>
+					<p>Αναλαμβάνουμε το ολικό optimization ώστε η σελίδα σας να πιάσει το απόλυτο 100% στα Core Web Vitals.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Core Web Vitals</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+
+	</body>
+</html>

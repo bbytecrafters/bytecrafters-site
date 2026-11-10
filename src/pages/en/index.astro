@@ -1,0 +1,77 @@
+---
+import '../../styles/global.css';
+import '../../styles/layout.css';
+import '../../styles/home.css';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="ByteCrafters - Full-service Digital Agency. Specializing in UI/UX design, custom web applications, and high-end SEO optimization.">
+		<title>ByteCrafters | Digital Product Agency</title>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="tech-bg">
+		
+		<Navbar />
+
+		<main class="hero-agency">
+			<div class="hero-glow"></div>
+			<div style="z-index: 1;">
+				<h1 class="title-agency gradient-text">
+					Crafting Digital<br />Experiences Byte by Byte
+				</h1>
+				<p class="subtitle-agency">
+					We are a full-service digital agency. We design and develop custom web applications, high-performance e-shops, and UI/UX digital products with an obsession for speed.
+				</p>
+				<a href="/en/contact" class="btn-neon">Start Your Project</a>
+			</div>
+		</main>
+
+		<section id="services" class="services-section">
+			<span class="section-tag">What We Do</span>
+			<h2 class="section-title">Full-Service Services</h2>
+
+			<div class="bento-grid">
+				<div class="bento-card size-large">
+					<h3>Custom Web & App Development</h3>
+					<p>We build custom applications and websites that load instantly. We build the future of the web using modern tech stacks.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Astro</span>
+						<span class="tech-badge">React</span>
+					</div>
+				</div>
+
+				<div class="bento-card">
+					<h3>UI/UX Product Design</h3>
+					<p>We create immersive and intuitive interfaces in Figma, focusing on user experience.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Figma</span>
+					</div>
+				</div>
+
+				<div class="bento-card">
+					<h3>E-commerce Ecosystems</h3>
+					<p>From custom Shopify setups to headless commerce solutions.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Shopify</span>
+					</div>
+				</div>
+
+				<div class="bento-card size-large">
+					<h3>Performance Optimization & SEO</h3>
+					<p>We undertake complete refactoring so your page hits a perfect 100% on Google Core Web Vitals.</p>
+					<div class="tech-badge-container">
+						<span class="tech-badge">Core Web Vitals</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<Footer />
+
+	</body>
+</html>

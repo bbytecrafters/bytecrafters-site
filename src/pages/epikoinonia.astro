@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import '../styles/layout.css';
+import '../styles/contact.css';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="el">
+	<head>
+		<meta charset="utf-8" />
+		<title>Επικοινωνία | ByteCrafters</title>
+		<meta name="viewport" content="width=device-width" />
+        <meta name="description" content="ByteCrafters - Full-service Digital Agency. Σχεδιασμός UI/UX, Custom Web Applications και SEO Optimization.">
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="tech-bg">
+		<Navbar />
+
+		<div style="padding-top: 100px;">
+			<section class="contact-agency">
+				<div class="contact-info-tech">
+					<span class="section-tag">Let's Connect</span>
+					<h2 class="gradient-text">Πάμε να δημιουργήσουμε κάτι μεγάλο.</h2>
+					<p>Είμαστε εδώ για να σχεδιάσουμε το επόμενο ψηφιακό σας βήμα.</p>
+					
+					<div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+						<div>
+							<h4 style="color: var(--neon-blue); margin: 0 0 0.5rem 0;">📞 Τηλέφωνα Επικοινωνίας</h4>
+						<p style="margin: 0; color: #ffffff;">Κινητό 1: 698 262 7277</p>
+                        <p style="margin: 4px 0 0 0; color: #ffffff;">Κινητό 2: 698 031 7162</p>
+						</div>
+						<div>
+							<h4 style="color: var(--neon-blue); margin: 0 0 0.5rem 0;">📩 Email</h4>
+							<p style="margin: 0; color: #ffffff;">hello@bytecrafters.com</p>
+						</div>
+					</div>
+				</div>
+
+				<form class="tech-inputs" action="#" method="POST">
+					<div class="form-field">
+						<label for="brand">Όνομα / Εταιρεία</label>
+						<input type="text" id="brand" required />
+					</div>
+					<div class="form-field">
+						<label for="email">Email</label>
+						<input type="email" id="email" required />
+					</div>
+					<div class="form-field">
+						<label for="message">Μήνυμα</label>
+						<textarea id="message" rows="5" required></textarea>
+					</div>
+					<button type="submit" class="btn-send-tech">Αποστολή Μηνύματος</button>
+				</form>
+			</section>
+		</div>
+
+		<Footer />
+	</body>
+</html>

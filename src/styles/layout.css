@@ -1,0 +1,190 @@
+/* --- NAVBAR --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(5, 5, 10, 0.9);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: #ffffff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: inline-block;
+    transition: transform 0.6s ease-in-out;
+}
+
+.nav-logo:hover {
+    transform: rotate(360deg);
+  }
+
+.nav-links a {
+        display: inline-block;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    /* 2. Magic Glow & Lift στα links των μενού (Αρχική, Υπηρεσίες, κλπ) */
+    .nav-links a:not(.lang-switch):hover {
+        color: #0088ff; /* Ή το ακριβές μπλε που έχετε στο brand */
+        transform: translateY(-2px); /* Μικρό σήκωμα */
+        text-shadow: 0 0 10px rgba(0, 136, 255, 0.6); /* High-tech glow */
+    }
+
+    /* 3. Εφέ "Underline Slide" - Μια γραμμή που μεγαλώνει από κάτω όταν κάνεις hover */
+    .nav-links a:not(.lang-switch)::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        transform: scaleX(0);
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #0088ff;
+        transform-origin: bottom right;
+        transition: transform 0.25s ease-out;
+    }
+    .nav-links a:not(.lang-switch):hover::after {
+        transform: scaleX(1);
+        transform-origin: bottom left;
+    }
+
+    /* 4. Μικρό "Flash" ή Zoom στο κουμπί της γλώσσας (EL / EN) */
+    .lang-switch {
+        padding: 2px 6px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+    .lang-switch:hover {
+        background-color: rgba(0, 136, 255, 0.15);
+        border-color: #0088ff;
+        color: #0088ff !important;
+        transform: scale(1.1);
+    }
+
+    /* 5. Highlight στο .blue-text όταν γίνεται η σβούρα του λογοτύπου */
+    .nav-logo:hover .blue-text {
+        color: #ffffff; /* Ή ένα πιο έντονο κυανό/neon μπλε */
+        text-shadow: 0 0 15px #0088ff;
+        transition: all 0.4s ease;
+    }
+
+.blue-text { color: #00d2ff; }
+.nav-links { display: flex; }
+
+.lang-group {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+}
+
+/* Έλεγχος Γλώσσας μέσω CSS */
+.en-links { display: none; }
+.el-links { display: flex; }
+
+:global(html[lang="en"]) .el-links { display: none !important; }
+:global(html[lang="en"]) .en-links { display: flex !important; }
+
+.lang-group a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.lang-group a:hover { color: #00d2ff; }
+
+.divider {
+    width: 1px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.lang-switch {
+    font-size: 1.3rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+}
+
+/* --- FOOTER --- */
+.footer-tech {
+    background-color: #030307;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 3rem 2rem;
+    margin-top: 5rem;
+}
+
+.footer-tech-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.footer-tech-logo {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+}
+
+.footer-tech-copy {
+    color: #64748b;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.footer-tech-links { display: flex; gap: 2rem; }
+.footer-tech-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.footer-tech-links a:hover { color: #00d2ff; }
+
+
+
+.lang-switch {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--neon-blue) !important;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.2s ease;
+}
+
+.lang-switch:hover {
+    background: rgba(0, 210, 255, 0.1);
+    border-color: var(--neon-blue);
+    transform: scale(1.05);
+}

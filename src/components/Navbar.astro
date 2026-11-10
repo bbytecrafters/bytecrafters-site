@@ -1,0 +1,43 @@
+---
+// src/components/Navbar.astro
+---
+<header class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            BYTE<span class="blue-text">CRAFTERS</span>
+        </a>
+        
+        <nav class="nav-links">
+            <div class="lang-group el-links">
+                <a href="/">Αρχική</a>
+                <a href="/#services">Υπηρεσίες</a>
+                <a href="/epikoinonia">Επικοινωνία</a>
+                <div class="divider"></div>
+                <a href="/en/" class="lang-switch">EN</a>
+            </div>
+            
+            <div class="lang-group en-links">
+                <a href="/en/">Home</a>
+                <a href="/en/#services">Services</a>
+                <a href="/en/contact">Contact</a>
+                <div class="divider"></div>
+                <a href="/" class="lang-switch">EL</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<script>
+    // JavaScript που τρέχει στον browser για να ελέγξει το URL
+    const isEnglish = window.location.pathname.includes('/en/');
+    const elMenu = document.querySelector('.el-links') as HTMLElement;
+    const enMenu = document.querySelector('.en-links') as HTMLElement;
+
+    if (isEnglish) {
+        if (elMenu) elMenu.style.display = 'none';
+        if (enMenu) enMenu.style.display = 'flex';
+    } else {
+        if (elMenu) elMenu.style.display = 'flex';
+        if (enMenu) enMenu.style.display = 'none';
+    }
+</script>

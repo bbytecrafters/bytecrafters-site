@@ -1,0 +1,18 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+---
+<footer class="footer-tech">
+    <div class="footer-tech-container">
+        <div class="footer-tech-logo">
+            BYTE<span style="color: var(--neon-blue);">CRAFTERS</span>
+        </div>
+        <p class="footer-tech-copy">
+            &copy; {currentYear} ByteCrafters
+        </p>
+        <div class="footer-tech-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+</footer>
