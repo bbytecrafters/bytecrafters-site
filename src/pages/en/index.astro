@@ -1,77 +1,320 @@
 ---
-import '../../styles/global.css';
-import '../../styles/layout.css';
-import '../../styles/home.css';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+import '../../styles/home.css';
+import '../../styles/layout.css';
 ---
 
-<html lang="en">
+<html lang="en" data-theme="dark" style="color-scheme:dark">
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="description" content="ByteCrafters - Full-service Digital Agency. Specializing in UI/UX design, custom web applications, and high-end SEO optimization.">
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<title>ByteCrafters | Digital Product Agency</title>
+		<meta name="theme-color" content="#05050a" />
+		<script is:inline>
+			if(!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('life');
+		</script>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 	</head>
 	<body class="tech-bg">
-		
+
 		<Navbar />
 
-		<main class="hero-agency">
-			<div class="hero-glow"></div>
-			<div style="z-index: 1;">
-				<h1 class="title-agency gradient-text">
-					Crafting Digital<br />Experiences Byte by Byte
-				</h1>
-				<p class="subtitle-agency">
-					We are a full-service digital agency. We design and develop custom web applications, high-performance e-shops, and UI/UX digital products with an obsession for speed.
-				</p>
-				<a href="/en/contact" class="btn-neon">Start Your Project</a>
+		<div id="top"></div>
+
+		<main>
+			<section class="hero-agency">
+				<div class="hero-glow"></div>
+				<div class="hero-content">
+					<h1 class="title-agency">
+						<span class="w" style="--i:0">Crafting</span> <span class="w" style="--i:1">Digital</span> <br>
+						<span class="w" style="--i:2">Experiences</span> <span class="w" style="--i:3">Byte</span> <span class="w" style="--i:4">by</span> <span class="w" style="--i:5">Byte</span>
+					</h1>
+					<p class="subtitle-agency">
+						We are a full-service digital agency. We design and develop custom web applications, high-performance e-shops, and UI/UX digital products with an obsession for speed.
+					</p>
+					<div class="hero-actions">
+						<a href="https://www.instagram.com/bytecrafters_/" class="btn-neon" target="_blank" rel="noopener">Start Your Project</a>
+						<a href="https://wa.me/306982627277" class="btn-ghost" target="_blank" rel="noopener">Message us on WhatsApp</a>
+					</div>
+				</div>
+			</section>
+
+			<div class="marquee" aria-label="Technologies">
+				<div class="marquee-track">
+					<ul><li>Astro</li><li>React</li><li>Next.js</li><li>Figma</li><li>Shopify</li><li>Core Web Vitals</li><li>Backups</li><li>Security</li><li>Cloud</li></ul>
+					<ul aria-hidden="true"><li>Astro</li><li>React</li><li>Next.js</li><li>Figma</li><li>Shopify</li><li>Core Web Vitals</li><li>Backups</li><li>Security</li><li>Cloud</li></ul>
+				</div>
 			</div>
+
+			<section id="services" class="services-section">
+				<span class="section-tag">What We Do</span>
+				<h2 class="section-title">Full-Service Solutions</h2>
+				<div class="bento-grid">
+					<article class="bento-card size-large">
+						<div class="card-visual" aria-hidden="true">
+							<svg viewBox="0 0 240 100" fill="none" preserveAspectRatio="xMinYMid meet" role="presentation">
+								<rect x="1" y="1" width="238" height="98" rx="10" class="v-frame" />
+								<circle cx="16" cy="14" r="3" class="v-dot" /><circle cx="27" cy="14" r="3" class="v-dot" /><circle cx="38" cy="14" r="3" class="v-dot" />
+								<rect x="18" y="32" width="70" height="6" rx="3" class="v-bar" />
+								<rect x="30" y="46" width="110" height="6" rx="3" class="v-bar v-hi" />
+								<rect x="30" y="60" width="84" height="6" rx="3" class="v-bar" />
+								<rect x="18" y="74" width="46" height="6" rx="3" class="v-bar" />
+								<rect x="70" y="73" width="3" height="9" class="v-cursor" />
+								<text x="176" y="64" class="v-glyph">&lt;/&gt;</text>
+							</svg>
+						</div>
+						<div class="card-body">
+							<h3>Custom Web &amp; App Development</h3>
+							<p>We build custom applications and websites that load instantly. We build the future of the web using modern tech stacks.</p>
+							<ul class="tech-badge-container"><li class="tech-badge">Astro</li><li class="tech-badge">React</li><li class="tech-badge">Next.js</li></ul>
+						</div>
+					</article>
+
+					<article class="bento-card">
+						<div class="card-visual" aria-hidden="true">
+							<svg viewBox="0 0 240 100" fill="none" preserveAspectRatio="xMinYMid meet" role="presentation">
+								<rect x="1" y="1" width="238" height="98" rx="10" class="v-frame" />
+								<circle cx="30" cy="34" r="12" class="v-bar v-hi" />
+								<rect x="52" y="28" width="80" height="6" rx="3" class="v-bar v-hi" />
+								<rect x="52" y="40" width="56" height="5" rx="2.5" class="v-bar" />
+								<rect x="150" y="24" width="64" height="22" rx="11" class="v-fill v-btn" />
+								<rect x="16" y="62" width="62" height="24" rx="6" class="v-bar" />
+								<rect x="89" y="62" width="62" height="24" rx="6" class="v-bar" />
+								<rect x="162" y="62" width="62" height="24" rx="6" class="v-bar" />
+							</svg>
+						</div>
+						<div class="card-body">
+							<h3>UI/UX Product Design</h3>
+							<p>We create immersive and intuitive interfaces in Figma, focusing on user experience.</p>
+							<ul class="tech-badge-container"><li class="tech-badge">Figma</li></ul>
+						</div>
+					</article>
+
+					<article class="bento-card">
+						<div class="card-visual" aria-hidden="true">
+							<svg viewBox="0 0 240 100" fill="none" preserveAspectRatio="xMinYMid meet" role="presentation">
+								<rect x="1" y="1" width="238" height="98" rx="10" class="v-frame" />
+								<rect x="16" y="16" width="68" height="68" rx="8" class="v-bar" />
+								<path d="M30 70 l14-18 l11 12 l7-8 l12 14z" class="v-fill" />
+								<rect x="100" y="22" width="90" height="7" rx="3.5" class="v-bar v-hi" />
+								<rect x="100" y="36" width="64" height="5" rx="2.5" class="v-bar" />
+								<rect x="100" y="60" width="52" height="22" rx="11" class="v-bar v-hi" />
+								<circle cx="204" cy="71" r="13" class="v-fill v-btn" />
+								<path d="M204 65v12M198 71h12" class="v-plus" />
+							</svg>
+						</div>
+						<div class="card-body">
+							<h3>E-commerce Ecosystems</h3>
+							<p>From custom Shopify setups to headless commerce solutions.</p>
+							<ul class="tech-badge-container"><li class="tech-badge">Shopify</li></ul>
+						</div>
+					</article>
+
+					<article class="bento-card size-large">
+						<div class="card-visual" aria-hidden="true">
+							<svg viewBox="0 0 240 100" fill="none" preserveAspectRatio="xMinYMid meet" role="presentation">
+								<rect x="1" y="1" width="238" height="98" rx="10" class="v-frame" />
+								<circle cx="62" cy="50" r="30" class="v-ring-bg" />
+								<circle cx="62" cy="50" r="30" class="v-ring" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0" transform="rotate(-90 62 50)" />
+								<text x="62" y="58" text-anchor="middle" class="v-score">100</text>
+								<text x="120" y="34" class="v-label">LCP</text><rect x="152" y="28" width="72" height="6" rx="3" class="v-bar v-hi" />
+								<text x="120" y="54" class="v-label">INP</text><rect x="152" y="48" width="72" height="6" rx="3" class="v-bar v-hi" />
+								<text x="120" y="74" class="v-label">CLS</text><rect x="152" y="68" width="72" height="6" rx="3" class="v-bar v-hi" />
+							</svg>
+						</div>
+						<div class="card-body">
+							<h3>Performance Optimization &amp; SEO</h3>
+							<p>We undertake complete refactoring so your page hits a perfect 100% on Google Core Web Vitals.</p>
+							<ul class="tech-badge-container"><li class="tech-badge">Core Web Vitals</li></ul>
+						</div>
+					</article>
+
+					<article class="bento-card size-full">
+						<div class="card-visual" aria-hidden="true">
+							<svg viewBox="0 0 240 100" fill="none" preserveAspectRatio="xMidYMid meet" role="presentation">
+								<path d="M70 14 L98 25 V50 C98 67 85 77 70 84 C55 77 42 67 42 50 V25 Z" class="v-line" />
+								<path d="M57 50 l10 10 l18 -21" class="v-check" />
+								<rect x="130" y="20" width="92" height="18" rx="6" class="v-frame" /><circle cx="141" cy="29" r="3" class="v-dot" /><rect x="152" y="27" width="50" height="4" rx="2" class="v-bar" />
+								<rect x="130" y="44" width="92" height="18" rx="6" class="v-frame" /><circle cx="141" cy="53" r="3" class="v-dot" /><rect x="152" y="51" width="36" height="4" rx="2" class="v-bar" />
+								<rect x="130" y="68" width="92" height="18" rx="6" class="v-frame" /><circle cx="141" cy="77" r="3" class="v-dot" /><rect x="152" y="75" width="58" height="4" rx="2" class="v-bar" />
+							</svg>
+						</div>
+						<div class="card-body">
+							<h3>Technical Support &amp; IT Infrastructure</h3>
+							<p>Maintenance, backups, security and cloud services that keep your website and systems fast, secure and always available.</p>
+							<ul class="tech-badge-container"><li class="tech-badge">Backups</li><li class="tech-badge">Security</li><li class="tech-badge">Cloud</li></ul>
+						</div>
+					</article>
+				</div>
+			</section>
 		</main>
-
-		<section id="services" class="services-section">
-			<span class="section-tag">What We Do</span>
-			<h2 class="section-title">Full-Service Services</h2>
-
-			<div class="bento-grid">
-				<div class="bento-card size-large">
-					<h3>Custom Web & App Development</h3>
-					<p>We build custom applications and websites that load instantly. We build the future of the web using modern tech stacks.</p>
-					<div class="tech-badge-container">
-						<span class="tech-badge">Astro</span>
-						<span class="tech-badge">React</span>
-					</div>
-				</div>
-
-				<div class="bento-card">
-					<h3>UI/UX Product Design</h3>
-					<p>We create immersive and intuitive interfaces in Figma, focusing on user experience.</p>
-					<div class="tech-badge-container">
-						<span class="tech-badge">Figma</span>
-					</div>
-				</div>
-
-				<div class="bento-card">
-					<h3>E-commerce Ecosystems</h3>
-					<p>From custom Shopify setups to headless commerce solutions.</p>
-					<div class="tech-badge-container">
-						<span class="tech-badge">Shopify</span>
-					</div>
-				</div>
-
-				<div class="bento-card size-large">
-					<h3>Performance Optimization & SEO</h3>
-					<p>We undertake complete refactoring so your page hits a perfect 100% on Google Core Web Vitals.</p>
-					<div class="tech-badge-container">
-						<span class="tech-badge">Core Web Vitals</span>
-					</div>
-				</div>
-			</div>
-		</section>
 
 		<Footer />
 
+		<script is:inline>
+			function initCircuits(hero) {
+				var cv = document.createElement('canvas');
+				cv.className = 'life-bits';
+				cv.setAttribute('aria-hidden', 'true');
+				hero.prepend(cv);
+				var cx = cv.getContext('2d');
+				var glow = hero.querySelector('.hero-glow');
+				var DIRS = [[1,0],[1,1],[0,1],[-1,1],[-1,0],[-1,-1],[0,-1],[1,-1]];
+				var G = 36, TAU = Math.PI * 2;
+				var W = 0, H = 0, paths = [], pulses = [], px = -9999, py = -9999;
+				var gx = 0.5, gy = 0.3, tx = 0.5, ty = 0.3;
+				var vis = true, run = false, last = 0, lastSpawn = 0, spawnIdx = 0;
+
+				function rng(seed) {
+					return function () {
+						seed |= 0; seed = (seed + 0x6D2B79F5) | 0;
+						var t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+						t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+						return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+					};
+				}
+
+				function build() {
+					var r = rng(7);
+					paths = [];
+					var n = Math.max(10, Math.round((W * H) / 38000));
+					for (var k = 0; k < n; k++) {
+						var x = Math.round(((r() < 0.5 ? r() * 0.3 : 1 - r() * 0.3) * W) / G) * G;
+						var y = Math.round((r() * H) / G) * G;
+						var dir = Math.floor(r() * 8);
+						var pts = [[x, y]];
+						var segs = 3 + Math.floor(r() * 5);
+						for (var s = 0; s < segs; s++) {
+							var diag = DIRS[dir][0] && DIRS[dir][1];
+							var len = (2 + Math.floor(r() * 4)) * G * (diag ? 0.7 : 1);
+							x += DIRS[dir][0] * len; y += DIRS[dir][1] * len;
+							pts.push([x, y]);
+							dir = (dir + (r() < 0.5 ? 1 : 7)) % 8;
+						}
+						var cum = [0];
+						for (var i = 1; i < pts.length; i++) cum.push(cum[i - 1] + Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]));
+						paths.push({ pts: pts, cum: cum, len: cum[cum.length - 1] });
+					}
+					pulses = [];
+					var m = Math.round(n * 0.45);
+					for (var j = 0; j < m; j++) pulses.push({ p: Math.floor(r() * n), d: -r() * 300, v: 90 + r() * 140 });
+				}
+
+				function pointAt(path, d) {
+					var c = path.cum, i = 0;
+					while (i < c.length - 2 && d > c[i + 1]) i++;
+					var f = (d - c[i]) / ((c[i + 1] - c[i]) || 1);
+					return [path.pts[i][0] + (path.pts[i + 1][0] - path.pts[i][0]) * f, path.pts[i][1] + (path.pts[i + 1][1] - path.pts[i][1]) * f];
+				}
+
+				function resize() {
+					var r = hero.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+					W = r.width; H = r.height;
+					cv.width = W * d; cv.height = H * d;
+					cx.setTransform(d, 0, 0, d, 0, 0);
+					build();
+				}
+
+				function draw(dt, now) {
+					cx.clearRect(0, 0, W, H);
+					cx.lineCap = 'round'; cx.lineJoin = 'round'; cx.lineWidth = 1.5;
+					var i, k, p, pts;
+
+					cx.strokeStyle = '#8b9ab3'; cx.globalAlpha = 0.16; cx.beginPath();
+					for (i = 0; i < paths.length; i++) {
+						pts = paths[i].pts; cx.moveTo(pts[0][0], pts[0][1]);
+						for (k = 1; k < pts.length; k++) cx.lineTo(pts[k][0], pts[k][1]);
+					}
+					cx.stroke();
+
+					cx.globalAlpha = 0.3; cx.beginPath();
+					for (i = 0; i < paths.length; i++) {
+						pts = paths[i].pts;
+						var a = pts[0], b = pts[pts.length - 1];
+						cx.moveTo(a[0] + 4, a[1]); cx.arc(a[0], a[1], 4, 0, TAU);
+						cx.moveTo(b[0] + 4, b[1]); cx.arc(b[0], b[1], 4, 0, TAU);
+					}
+					cx.stroke();
+
+					if (px > -1000) {
+						cx.strokeStyle = '#00d2ff';
+						for (i = 0; i < paths.length; i++) {
+							pts = paths[i].pts;
+							for (k = 1; k < pts.length; k++) {
+								var mx = (pts[k][0] + pts[k - 1][0]) / 2, my = (pts[k][1] + pts[k - 1][1]) / 2;
+								var dd = Math.hypot(mx - px, my - py);
+								if (dd < 220) {
+									cx.globalAlpha = (1 - dd / 220) * 0.85;
+									cx.beginPath(); cx.moveTo(pts[k - 1][0], pts[k - 1][1]); cx.lineTo(pts[k][0], pts[k][1]); cx.stroke();
+								}
+							}
+						}
+					}
+
+					for (i = 0; i < pulses.length; i++) {
+						p = pulses[i];
+						var path = paths[p.p];
+						p.d += p.v * dt;
+						if (p.d > path.len + 60) { p.p = Math.floor(Math.random() * paths.length); p.d = -Math.random() * 200; p.v = 90 + Math.random() * 140; continue; }
+						for (k = 0; k < 8; k++) {
+							var s = p.d - k * 9;
+							if (s < 0 || s > path.len) continue;
+							var q = pointAt(path, s);
+							cx.globalAlpha = (1 - k / 8) * 0.9;
+							cx.fillStyle = k === 0 ? '#ffffff' : '#00d2ff';
+							cx.beginPath(); cx.arc(q[0], q[1], k === 0 ? 2.6 : 2.2 - k * 0.15, 0, TAU); cx.fill();
+						}
+					}
+
+					cx.globalCompositeOperation = 'destination-out';
+					var cxr = W / 2, cyr = H * 0.45;
+					var rg = cx.createRadialGradient(cxr, cyr, 0, cxr, cyr, Math.max(W, H) * 0.6);
+					rg.addColorStop(0, 'rgba(0,0,0,0.7)'); rg.addColorStop(0.7, 'rgba(0,0,0,0)');
+					cx.globalAlpha = 1; cx.fillStyle = rg; cx.fillRect(0, 0, W, H);
+					var lg = cx.createLinearGradient(0, H * 0.6, 0, H);
+					lg.addColorStop(0, 'rgba(0,0,0,0)'); lg.addColorStop(1, 'rgba(0,0,0,1)');
+					cx.fillStyle = lg; cx.fillRect(0, 0, W, H);
+					cx.globalCompositeOperation = 'source-over';
+				}
+
+				function frame(t) {
+					if (!vis || document.hidden || hero.offsetParent === null) { run = false; return; }
+					if (t - last >= 33) {
+						var dt = Math.min((t - last) / 1000, 0.05);
+						last = t;
+						draw(dt, t);
+						if (glow) {
+							gx += (tx - gx) * 0.06; gy += (ty - gy) * 0.06;
+							glow.style.left = gx * 100 + '%'; glow.style.top = gy * 100 + '%';
+						}
+					}
+					requestAnimationFrame(frame);
+				}
+
+				function start() {
+					if (run || !vis || document.hidden || hero.offsetParent === null) return;
+					run = true; last = performance.now();
+					requestAnimationFrame(frame);
+				}
+
+				hero.addEventListener('pointermove', function (e) {
+					var r = hero.getBoundingClientRect();
+					px = e.clientX - r.left; py = e.clientY - r.top;
+					tx = px / r.width; ty = py / r.height;
+				});
+				hero.addEventListener('pointerleave', function () { px = py = -9999; tx = 0.5; ty = 0.3; });
+				new IntersectionObserver(function (es) { vis = es[0].isIntersecting; start(); }).observe(hero);
+				document.addEventListener('visibilitychange', start);
+				window.addEventListener('resize', function () { resize(); start(); });
+				resize();
+				start();
+			}
+
+			document.querySelectorAll('.hero-agency').forEach(initCircuits);
+		</script>
 	</body>
 </html>

@@ -26,3 +26,74 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+
+/* Mobile Burger Toggle Styles */
+.nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 100;
+}
+
+.hamburger {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    left: 0;
+    transition: transform 0.3s;
+}
+
+.hamburger::before { top: -7px; }
+.hamburger::after { top: 7px; }
+
+/* Mobile Responsive View */
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(5, 5, 10, 0.95);
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.3s ease-in-out;
+        z-index: 99;
+    }
+
+    .navbar.open .nav-links {
+        right: 0;
+    }
+
+    /* Animation για το burger όταν ανοίγει */
+    .navbar.open .hamburger {
+        background: transparent;
+    }
+    .navbar.open .hamburger::before {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+    .navbar.open .hamburger::after {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}

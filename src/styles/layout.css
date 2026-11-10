@@ -33,6 +33,7 @@
     transform: rotate(360deg);
   }
 
+  
 .nav-links a {
         display: inline-block;
         color: #ffffff;
@@ -48,6 +49,8 @@
         transform: translateY(-2px); /* Μικρό σήκωμα */
         text-shadow: 0 0 10px rgba(0, 136, 255, 0.6); /* High-tech glow */
     }
+
+
 
     /* 3. Εφέ "Underline Slide" - Μια γραμμή που μεγαλώνει από κάτω όταν κάνεις hover */
     .nav-links a:not(.lang-switch)::after {

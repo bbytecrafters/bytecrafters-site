@@ -7,6 +7,168 @@
             BYTE<span class="blue-text">CRAFTERS</span>
         </a>
         
+        <!-- Mobile Burger Button -->
+        <button class="nav-toggle" aria-label="Toggle Menu" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav class="nav-links">
+            <div class="lang-group el-links">
+                <a href="/">Αρχική</a>
+                <a href="/#services">Υπηρεσίες</a>
+                <a href="/epikoinonia">Επικοινωνία</a>
+                <div class="divider"></div>
+                <a href="/en/" class="lang-switch">EN</a>
+            </div>
+            
+            <div class="lang-group en-links">
+                <a href="/en/">Home</a>
+                <a href="/en/#services">Services</a>
+                <a href="/en/contact">Contact</a>
+                <div class="divider"></div>
+                <a href="/" class="lang-switch">EL</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<style>
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(5, 5, 10, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        width: 100%;
+    }
+    .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1.25rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .nav-logo {
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: #ffffff;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+    }
+    .blue-text { color: #00d2ff; }
+    .nav-links {
+        display: flex;
+        align-items: center;
+    }
+    .lang-group {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    .lang-group a {
+        color: #8b9ab3;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+    }
+    .lang-group a:hover { color: #ffffff; }
+    .lang-switch {
+        color: #00d2ff !important;
+        font-weight: 700 !important;
+        border: 1px solid rgba(0, 210, 255, 0.3);
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+    }
+    .divider {
+        width: 1px;
+        height: 16px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+</style>
+
+<script>
+    const isEnglish = window.location.pathname.includes('/en/');
+    const elMenu = document.querySelector('.el-links') as HTMLElement;
+    const enMenu = document.querySelector('.en-links') as HTMLElement;
+
+    if (isEnglish) {
+        if (elMenu) elMenu.style.display = 'none';
+        if (enMenu) enMenu.style.display = 'flex';
+    } else {
+        if (elMenu) elMenu.style.display = 'flex';
+        if (enMenu) enMenu.style.display = 'none';
+    }
+
+    const navbar = document.querySelector('.navbar');
+    const toggleBtn = document.querySelector('.nav-toggle');
+
+    if (toggleBtn && navbar) {
+        toggleBtn.addEventListener('click', () => {
+            const isOpen = navbar.classList.toggle('open');
+            toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+</script>
+
+
+<!-- 
+<script>
+    // 1. Έλεγχος γλώσσας βάσει URL
+    const isEnglish = window.location.pathname.includes('/en/');
+    const elMenu = document.querySelector('.el-links') as HTMLElement;
+    const enMenu = document.querySelector('.en-links') as HTMLElement;
+
+    if (isEnglish) {
+        if (elMenu) elMenu.style.display = 'none';
+        if (enMenu) enMenu.style.display = 'flex';
+    } else {
+        if (elMenu) elMenu.style.display = 'flex';
+        if (enMenu) enMenu.style.display = 'none';
+    }
+
+    // 2. Λειτουργικότητα Burger Menu για Mobile
+    const navbar = document.querySelector('.navbar');
+    const toggleBtn = document.querySelector('.nav-toggle');
+
+    if (toggleBtn && navbar) {
+        toggleBtn.addEventListener('click', () => {
+            const isOpen = navbar.classList.toggle('open');
+            toggleBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        // Κλείσιμο του μενού όταν ο χρήστης πατάει κάποιο link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('open');
+                toggleBtn.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+<header class="navbar">
+    <div class="nav-container">
+        <a href="/" class="nav-logo">
+            BYTE<span class="blue-text">CRAFTERS</span>
+        </a>
+        
         <nav class="nav-links">
             <div class="lang-group el-links">
                 <a href="/">Αρχική</a>
@@ -40,4 +202,4 @@
         if (elMenu) elMenu.style.display = 'flex';
         if (enMenu) enMenu.style.display = 'none';
     }
-</script>
+</script> -->
