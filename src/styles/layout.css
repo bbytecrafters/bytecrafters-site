@@ -1,4 +1,4 @@
-/* --- NAVBAR --- */
+/* --- NAVBAR ---
 .navbar {
     position: fixed;
     top: 0;
@@ -129,6 +129,25 @@
     text-decoration: none;
 }
 
+/* Στο CSS του Navbar.astro */
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;
+  background: rgba(5, 5, 10, 0.98);
+  backdrop-filter: blur(16px);
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
 @media (max-width: 768px) {
     .nav-links { display: none; }
 }
@@ -190,4 +209,4 @@
     background: rgba(0, 210, 255, 0.1);
     border-color: var(--neon-blue);
     transform: scale(1.05);
-}
+} */

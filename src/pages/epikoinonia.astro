@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import '../styles/layout.css';
+// import '../styles/layout.css';
 import '../styles/contact.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
@@ -37,8 +37,10 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</div>
 
-				<form class="tech-inputs" action="#" method="POST">
-					<div class="form-field">
+			     <!-- Web3Forms Form Integration -->
+                <form action="https://api.web3forms.com/submit" method="POST" class="tech-inputs" id="contact-form">
+                    <!-- Το Access Key σου από το Web3Forms -->
+                    <input type="hidden" name="access_key" value="180b74ba-4984-419b-a3d5-0676b92a46aa" />
 						<label for="brand">Όνομα / Εταιρεία</label>
 						<input type="text" id="brand" required />
 					</div>

@@ -1,6 +1,7 @@
 ---
 // src/components/Footer.astro
 const currentYear = new Date().getFullYear();
+const isEnglish = Astro.url.pathname.startsWith('/en');
 ---
 <footer class="footer-tech">
     <div class="footer-tech-container">
@@ -8,11 +9,15 @@ const currentYear = new Date().getFullYear();
             BYTE<span style="color: var(--neon-blue);">CRAFTERS</span>
         </div>
         <p class="footer-tech-copy">
-            &copy; {currentYear} ByteCrafters
+            &copy; {currentYear} ByteCrafters. {isEnglish ? 'All rights reserved.' : 'Με επιφύλαξη παντός δικαιώματος.'}
         </p>
         <div class="footer-tech-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms of Service</a>
+            <a href={isEnglish ? '/en/privacy' : '/privacy'}>
+                {isEnglish ? 'Privacy Policy' : 'Πολιτική Απορρήτου'}
+            </a>
+            <a href={isEnglish ? '/en/terms' : '/terms'}>
+                {isEnglish ? 'Terms of Service' : 'Όροι Χρήσης'}
+            </a>
         </div>
     </div>
 </footer>
