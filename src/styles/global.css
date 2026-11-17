@@ -175,7 +175,7 @@ main, section {
 }
 
 .hero-content h1 {
-    font-size.clamp(2.5rem, 5vw, 4.5rem);
+    font-size:clamp(2.5rem, 5vw, 4.5rem);
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
