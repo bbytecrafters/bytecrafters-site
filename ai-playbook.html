@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI Business Playbook | ByteCrafters</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #05050a;
+            --card-dark: #0b0c16;
+            --neon-blue: #00d2ff;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --bg-light: #ffffff;
+            --prompt-bg: #f0f9ff;
+            --border-light: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            background-color: #e2e8f0;
+            line-height: 1.65;
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        /* A4 Page Setup */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        .page {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 20px auto;
+            background: var(--bg-light);
+            position: relative;
+            padding: 22mm 20mm 25mm 20mm;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        @media print {
+            body {
+                background: none;
+            }
+            .page {
+                margin: 0;
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+
+        /* Cover Page (Dark Tech ByteCrafters Style) */
+        .cover-page {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 80% 20%, rgba(0, 210, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(rgba(0, 210, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 210, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            color: #ffffff;
+            padding: 25mm;
+            justify-content: space-between;
+        }
+
+        .brand-logo {
+            font-size: 16pt;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .brand-logo span {
+            color: var(--neon-blue);
+        }
+
+        .cover-badge {
+            display: inline-block;
+            background: rgba(0, 210, 255, 0.12);
+            border: 1px solid rgba(0, 210, 255, 0.4);
+            color: var(--neon-blue);
+            font-size: 9.5pt;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .cover-title {
+            font-size: 38pt;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .cover-title span {
+            color: var(--neon-blue);
+        }
+
+        .cover-subtitle {
+            font-size: 13pt;
+            color: #94a3b8;
+            line-height: 1.6;
+            max-width: 90%;
+            margin-bottom: 35px;
+        }
+
+        .cover-highlights {
+            background: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 4px solid var(--neon-blue);
+            border-radius: 12px;
+            padding: 20px 25px;
+        }
+
+        .cover-highlights h4 {
+            color: var(--neon-blue);
+            font-size: 10pt;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .cover-highlights ul {
+            list-style: none;
+        }
+
+        .cover-highlights li {
+            font-size: 10.5pt;
+            color: #e2e8f0;
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .cover-highlights li::before {
+            content: "✓";
+            color: var(--neon-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .cover-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 18px;
+            font-size: 9.5pt;
+            color: #64748b;
+        }
+
+        /* Content Typography */
+        .chapter-tag {
+            font-size: 9pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #0284c7;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 21pt;
+            font-weight: 800;
+            color: var(--bg-dark);
+            line-height: 1.2;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--border-light);
+        }
+
+        h2 {
+            font-size: 13.5pt;
+            font-weight: 700;
+            color: var(--bg-dark);
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 10.5pt;
+            color: #334155;
+            margin-bottom: 12px;
+        }
+
+        ul.styled-list, ol.styled-list {
+            margin-left: 20px;
+            margin-bottom: 14px;
+        }
+
+        ul.styled-list li, ol.styled-list li {
+            font-size: 10.5pt;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        /* Prompt Box */
+        .prompt-box {
+            background-color: var(--prompt-bg);
+            border: 1px solid #bae6fd;
+            border-left: 4px solid #0284c7;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin: 14px 0;
+        }
+
+        .prompt-label {
+            font-size: 8.5pt;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: #0369a1;
+            margin-bottom: 6px;
+            display: block;
+        }
+
+        .prompt-text {
+            font-size: 9.8pt;
+            color: #0f172a;
+            font-style: italic;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* Comparison Cards */
+        .compare-bad {
+            background: #fef2f2;
+            border-left: 4px solid #ef4444;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 10pt;
+        }
+
+        .compare-good {
+            background: #f0fdf4;
+            border-left: 4px solid #22c55e;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            font-size: 10pt;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 9.5pt;
+        }
+
+        th {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            text-align: left;
+            padding: 10px 12px;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid var(--border-light);
+            color: #334155;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            margin: 12px 0;
+        }
+
+        .checklist li {
+            font-size: 10pt;
+            padding: 8px 12px;
+            background: #f8fafc;
+            border: 1px solid var(--border-light);
+            border-radius: 6px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .checkbox-square {
+            width: 15px;
+            height: 15px;
+            border: 2px solid #0284c7;
+            border-radius: 3px;
+            display: inline-block;
+            flex-shrink: 0;
+        }
+
+        /* CTA Box */
+        .cta-box {
+            background: var(--bg-dark);
+            color: #ffffff;
+            padding: 22px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            margin-top: 20px;
+        }
+
+        .cta-box h3 {
+            color: var(--neon-blue);
+            font-size: 13pt;
+            margin-bottom: 8px;
+        }
+
+        .cta-box p {
+            color: #cbd5e1;
+            font-size: 10pt;
+            margin-bottom: 12px;
+        }
+
+        .cta-link {
+            display: inline-block;
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            font-weight: 700;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            font-size: 10pt;
+        }
+
+        /* Running Page Footer */
+        .page-footer {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-light);
+            padding-top: 10px;
+            font-size: 8.5pt;
+            color: #94a3b8;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ΣΕΛΙΔΑ 1: ΕΞΩΦΥΛΛΟ -->
+    <div class="page cover-page">
+        <div class="brand-logo">BYTE<span>CRAFTERS</span></div>
+        
+        <div>
+            <span class="cover-badge">Official Digital Playbook</span>
+            <h1 class="cover-title" style="color: #fff; border: none; padding: 0;">THE AI BUSINESS <span>PLAYBOOK</span></h1>
+            <p class="cover-subtitle">
+                Πώς να αυτοματοποιήσεις την καθημερινή σου εργασία, να παράγεις περιεχόμενο σε λεπτά και να κερδίσεις 10+ ώρες την εβδομάδα — χωρίς τεχνικές γνώσεις.
+            </p>
+
+            <div class="cover-highlights">
+                <h4>Τι θα βρεις μέσα σε αυτόν τον οδηγό:</h4>
+                <ul>
+                    <li>Η φόρμουλα R-C-T-F για εντολές που φέρνουν επαγγελματικά αποτελέσματα</li>
+                    <li>Έτοιμα copy-paste prompts για TikTok, Reels, Meta Ads & Emails</li>
+                    <li>Πώς να φτιάξεις τον προσωπικό σου ψηφιακό βοηθό σε 5 λεπτά</li>
+                    <li>Τα κορυφαία εργαλεία AI για εικόνα, βίντεο, ήχο και παρουσιάσεις</li>
+                    <li>Το «Vault» της ByteCrafters με 30+ templates & εβδομαδιαίο checklist</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cover-footer">
+            <span>ByteCrafters Digital Agency</span>
+            <span>AI & Digital Growth</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 2: ΕΙΣΑΓΩΓΗ -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Εισαγωγή</span>
+            <h1>Γιατί οι Περισσότεροι Χρησιμοποιούν Λάθος το AI</h1>
+            
+            <p>Αν άνοιξες το ChatGPT, έγραψες <em>«Γράψε μου ένα κείμενο για το Instagram της επιχείρησής μου»</em>, πήρες μια γενικόλογη, ρομποτική απάντηση και έκλεισες την καρτέλα σκεπτόμενος ότι <em>«τελικά το AI δεν κάνει και πολλά»</em>, δεν είσαι μόνος. Το 90% των επαγγελματιών κάνει ακριβώς αυτό το λάθος.</p>
+
+            <p>Αντιμετωπίζουν την Τεχνητή Νοημοσύνη σαν μια απλή μηχανή αναζήτησης (όπως το Google), ενώ στην πραγματικότητα είναι ένας <strong>πανέξυπνος, ακούραστος συνεργάτης</strong> που περιμένει σαφείς οδηγίες για να αποδώσει.</p>
+
+            <p>Η διαφορά ανάμεσα σε κάποιον που χάνει την ώρα του με γενικόλογα κείμενα και σε κάποιον που γλιτώνει 10+ ώρες εργασίας την εβδομάδα βρίσκεται στον <strong>τρόπο επικοινωνίας (Prompting)</strong> και στη <strong>σωστή προετοιμασία</strong> του εργαλείου.</p>
+
+            <h2>Πώς να Στήσεις το Περιβάλλον Εργασίας σου σε 5 Λεπτά</h2>
+            <p>Πριν γράψεις την πρώτη σου εντολή, πρέπει να μάθεις στο AI ποιος είσαι και τι κάνει η επιχείρησή σου, ώστε να μην χρειάζεται να το εξηγείς κάθε φορά από την αρχή:</p>
+
+            <ol class="styled-list">
+                <li>Άνοιξε το <strong>ChatGPT</strong> (ή το Claude / Gemini).</li>
+                <li>Πάτησε στο προφίλ σου και επίλεξε <strong>Custom Instructions</strong> (Προσαρμοσμένες Οδηγίες) ή δημιούργησε ένα νέο <strong>Project / Gem</strong>.</li>
+                <li>Συμπλήρωσε το παρακάτω template με τα δικά σου στοιχεία:</li>
+            </ol>
+
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Template — Προφίλ Επιχείρησης</span>
+                <p class="prompt-text">«Είμαι [Ο Ρόλος σου, π.χ. ιδιοκτήτης e-shop με αθλητικά είδη / σύμβουλος ακινήτων / δημιουργός περιεχομένου]. Η επιχείρησή μου απευθύνεται σε [Περιγραφή κοινού, π.χ. άνδρες και γυναίκες 25-45 ετών στην Ελλάδα]. Ο τόνος επικοινωνίας μου είναι [φιλικός, άμεσος, επαγγελματικός, χωρίς περιττή φλυαρία]. Όταν σου ζητάω κείμενα, θέλω να εστιάζεις στην πρακτική αξία, να γράφεις φυσικά ελληνικά και να αποφεύγεις τα κλισέ.»</p>
+            </div>
+
+            <p>Με αυτή τη μία κίνηση, κάθε απάντηση που θα παίρνεις από εδώ και πέρα θα είναι κομμένη και ραμμένη στα μέτρα της δικής σου δουλειάς.</p>
+        </div>
+
+        <div class="page-footer">
+            <span>ByteCrafters | The AI Business Playbook</span>
+            <span>Σελίδα 2</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 3: ΚΕΦΑΛΑΙΟ 1 -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Κεφάλαιο 01</span>
+            <h1>Η Φόρμουλα του Τέλειου Prompt (ByteCrafters Framework)</h1>
+            
+            <p>Για να πάρεις αποτέλεσμα επιπέδου senior marketer, copywriter ή συμβούλου επιχειρήσεων, κάθε εντολή (prompt) που δίνεις πρέπει να ακολουθεί τη φόρμουλα <strong>R-C-T-F (Role – Context – Task – Format)</strong>.</p>
+
+            <ul class="styled-list">
+                <li><strong>R – Role (Ρόλος):</strong> Ποιον θέλεις να υποδυθεί το AI; <em>(π.χ. «Λειτούργησε ως έμπειρος Social Media Strategist με εξειδίκευση στο TikTok»).</em></li>
+                <li><strong>C – Context (Πλαίσιο):</strong> Ποια είναι τα δεδομένα, ο στόχος και το κοινό σου; <em>(π.χ. «Έχω ένα συνοικιακό γυμναστήριο και θέλω να προωθήσω μια συνδρομή 3 μηνών σε εργαζόμενους»).</em></li>
+                <li><strong>T – Task (Εντολή):</strong> Τι ακριβώς θέλεις να φτιάξει; <em>(π.χ. «Γράψε μου 3 σενάρια για βίντεο 30 δευτερολέπτων με δυνατό hook»).</em></li>
+                <li><strong>F – Format (Μορφή):</strong> Πώς θέλεις να παραδοθεί το αποτέλεσμα; <em>(π.χ. «Σε πίνακα με 3 στήλες: Δευτερόλεπτα, Εικόνα, Λόγια»).</em></li>
+            </ul>
+
+            <h2>Παράδειγμα στην Πράξη: Πριν vs Μετά</h2>
+
+            <div class="compare-bad">
+                <strong>❌ Το Λάθος Prompt:</strong> «Γράψε μου ιδέες για να διαφημίσω το καφέ-μπαρ μου.»<br>
+                <em>Αποτέλεσμα:</em> 10 βαρετές, γενικές ιδέες του τύπου «Κάντε έναν διαγωνισμό» ή «Βάλτε happy hour».
+            </div>
+
+            <div class="compare-good">
+                <strong>✅ Το Σωστό Prompt (R-C-T-F):</strong> «<strong>[Role]</strong> Λειτούργησε ως Marketing Strategist για καταστήματα εστίασης. <strong>[Context]</strong> Διαχειρίζομαι ένα specialty coffee shop στο κέντρο της πόλης, δίπλα σε γραφεία. Στόχος μου είναι να αυξήσω την κίνηση τις καθημερινές 08:00 - 11:00. <strong>[Task]</strong> Πρότεινέ μου 5 χαμηλού κόστους ενέργειες προώθησης μέσω Instagram & TikTok για αυτή την εβδομάδα. <strong>[Format]</strong> Για κάθε ιδέα δώσε: 1) Τίτλο, 2) Εκτέλεση σε 2 βήματα, 3) Το ακριβές κείμενο για Instagram Story.»
+            </div>
+
+            <h2>💡 Ο Κανόνας της Επανατροφοδότησης (Iteration)</h2>
+            <p>Μην περιμένεις το τέλειο αποτέλεσμα με την πρώτη εντολή. Αν μια απάντηση είναι καλή κατά 80%, συνέχισε τη συζήτηση σαν να μιλάς σε συνεργάτη: <em>«Κάνε το πιο σύντομο»</em>, <em>«Δώσε 3 εναλλακτικές για την πρώτη πρόταση»</em> ή <em>«Αφαίρεσε τις γενικότητες»</em>.</p>
+        </div>
+
+        <div class="page-footer">
+            <span>ByteCrafters | The AI Business Playbook</span>
+            <span>Σελίδα 3</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 4: ΚΕΦΑΛΑΙΟ 2 -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Κεφάλαιο 02</span>
+            <h1>Marketing & Social Media στον Αυτόματο</h1>
+            
+            <p>Το μεγαλύτερο πρόβλημα στα social media δεν είναι η έλλειψη καλών υπηρεσιών, αλλά το μπλοκάρισμα μπροστά στην οθόνη: <em>«Τι να ανεβάσω σήμερα;»</em>. Με τα παρακάτω prompts, το πλάνο της εβδομάδας βγαίνει σε 15 λεπτά.</p>
+
+            <h2>1. 15 Ιδέες για TikTok & Reels σε 2 Λεπτά</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Ιδέες Περιεχομένου</span>
+                <p class="prompt-text">«Θέλω να φτιάξω βίντεο 30-45 δευτερολέπτων για TikTok και Instagram Reels για την επιχείρησή μου ([περιγραφή επιχείρησης]). Το κοινό μου είναι [περιγραφή κοινού]. Γράψε μου 15 ιδέες χωρισμένες σε: 1) 5 συχνά λάθη που κάνουν οι πελάτες πριν έρθουν σε εμάς, 2) 5 "μύθοι vs πραγματικότητα" στον κλάδο μας, 3) 5 γρήγορες συμβουλές που λύνουν ένα μικρό πρόβλημα αμέσως. Για κάθε ιδέα, δώσε μόνο την πρώτη πρόταση (το hook) των πρώτων 3 δευτερολέπτων.»</p>
+            </div>
+
+            <h2>2. Σενάριο Βίντεο Έτοιμο για Γύρισμα</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Σενάριο Short-Form Video</span>
+                <p class="prompt-text">«Πάρε την ιδέα: "[Επικόλλησε την ιδέα]". Γράψε μου ένα σενάριο διάρκειας 40 δευτερολέπτων με φυσικό, καθημερινό προφορικό λόγο. Χώρισέ το σε: Hook (0-3 δευτ.), Πρόβλημα (3-15 δευτ.), Πρακτική Λύση (15-35 δευτ.) και Κλείσιμο (35-40 δευτ.) με μια απλή παρότρυνση για σχόλιο ή follow.»</p>
+            </div>
+
+            <h2>3. Διαφημίσεις (Meta & TikTok Ads) που Φέρνουν Κλικ</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Ad Copywriting</span>
+                <p class="prompt-text">«Γράψε μου 3 διαφορετικές εκδοχές για διαφήμιση σε Facebook/Instagram για [προϊόν/υπηρεσία και προσφορά]. Εκδοχή 1: Εστιασμένη στο πρόβλημα που λύνει. Εκδοχή 2: Εστιασμένη στο τελικό όφελος. Εκδοχή 3: Σύντομη και άμεση για Story / TikTok Ad. Κράτα τις παραγράφους μικρές (2-3 γραμμές) και γράψε έναν τίτλο (Headline) κάτω από 40 χαρακτήρες για την καθεμία.»</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>ByteCrafters | The AI Business Playbook</span>
+            <span>Σελίδα 4</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 5: ΚΕΦΑΛΑΙΟ 3 -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Κεφάλαιο 03</span>
+            <h1>Πωλήσεις, Emails & Εξυπηρέτηση Πελατών</h1>
+            
+            <p>Πολλές πωλήσεις χάνονται επειδή μια προσφορά έμεινε χωρίς follow-up ή επειδή ένα μήνυμα πελάτη απαντήθηκε βιαστικά. Χρησιμοποίησε το AI για να επικοινωνείς γρήγορα, ευγενικά και αποτελεσματικά.</p>
+
+            <h2>1. Διαχείριση Δύσκολων Πελατών & Παραπόνων</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Επαγγελματική Απάντηση</span>
+                <p class="prompt-text">«Ένας πελάτης μου έστειλε το εξής μήνυμα: "[Επικόλλησε το μήνυμα]". Η πραγματικότητα από τη δική μας πλευρά είναι ότι [εξήγησε τι συνέβη]. Γράψε μου μια ευγενική, ψύχραιμη απάντηση που δείχνει κατανόηση, εξηγεί ξεκάθαρα τη θέση μας χωρίς να ρίχνει ευθύνες στον πελάτη και προτείνει την εξής λύση: [η λύση σου].»</p>
+            </div>
+
+            <h2>2. Follow-Up Emails που Κλείνουν Συμφωνίες</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Follow-Up Προσφοράς</span>
+                <p class="prompt-text">«Έστειλα μια προσφορά πριν από 4 ημέρες στον [Όνομα/Εταιρεία] για [υπηρεσία/προϊόν] και δεν έχω λάβει απάντηση. Γράψε μου ένα σύντομο, φιλικό follow-up email (μέχρι 80 λέξεις) που υπενθυμίζει την προσφορά χωρίς να πιέζει, και κλείσε με μια απλή ερώτηση που απαντιέται εύκολα.»</p>
+            </div>
+
+            <h2>3. Περιγραφές Προϊόντων E-shop που Πουλάνε</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Product Description</span>
+                <p class="prompt-text">«Πουλάω στο e-shop μου το προϊόν: [Όνομα & τεχνικά χαρακτηριστικά]. Γράψε μια περιγραφή που πείθει τον επισκέπτη να αγοράσει. Ξεκίνα με 2-3 γραμμές για το πώς βελτιώνει την καθημερινότητά του, συνέχισε με 4 bullet points που μεταφράζουν τα χαρακτηριστικά σε οφέλη, και κλείσε με μια πρόταση που δημιουργεί σιγουριά για την αγορά.»</p>
+            </div>
+        </div>
+
+        <div class="page-footer">
+            <span>ByteCrafters | The AI Business Playbook</span>
+            <span>Σελίδα 5</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 6: ΚΕΦΑΛΑΙΟ 4 & 5 -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Κεφάλαιο 04 & 05</span>
+            <h1>Οργάνωση, Αποφάσεις & Κορυφαία Εργαλεία</h1>
+            
+            <h2>Ανάλυση Εγγράφων & Έλεγχος Ιδεών</h2>
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Σύνοψη Εγγράφων / Συμβολαίων</span>
+                <p class="prompt-text">«Διάβασε το παρακάτω κείμενο και δώσε μου: 1) Τα 5 πιο σημαντικά σημεία σε bullet points, 2) Τυχόν κινδύνους ή ψιλά γράμματα που θέλουν προσοχή, 3) Τα επόμενα βήματα (action items) που πρέπει να κάνω. Κείμενο: [Επικόλλησε το κείμενο]»</p>
+            </div>
+
+            <div class="prompt-box">
+                <span class="prompt-label">Copy-Paste Prompt — Ο «Δικηγόρος του Διαβόλου»</span>
+                <p class="prompt-text">«Σκέφτομαι να ξεκινήσω το εξής: [Περιέγραψε την ιδέα]. Παίξε τον ρόλο ενός αυστηρού, ρεαλιστή επενδυτή. Πες μου τους 5 βασικούς λόγους για τους οποίους αυτή η ιδέα μπορεί να αποτύχει στην ελληνική αγορά, και πώς να θωρακίσω το πλάνο μου απέναντι σε καθέναν από αυτούς.»</p>
+            </div>
+
+            <h2>Τα Καλύτερα Εργαλεία AI Πέρα από το ChatGPT</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 24%;">Κατηγορία</th>
+                        <th style="width: 24%;">Εργαλείο</th>
+                        <th style="width: 52%;">Τι Κάνει & Πότε να το Χρησιμοποιήσεις</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Κείμενα & PDF</strong></td>
+                        <td>Claude</td>
+                        <td>Γράφει εξαιρετικά φυσικά ελληνικά και αναλύει μεγάλα PDF με ακρίβεια.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Έρευνα & Πηγές</strong></td>
+                        <td>Perplexity AI</td>
+                        <td>Απαντάει με ζωντανά δεδομένα από το ίντερνετ και παραθέτει πηγές.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Εικόνες & Λογότυπα</strong></td>
+                        <td>Midjourney / Ideogram</td>
+                        <td>Φωτορεαλιστικά visuals (Midjourney) και εικόνες με καθαρό κείμενο (Ideogram).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Video & Υπότιτλοι</strong></td>
+                        <td>CapCut / HeyGen</td>
+                        <td>Αυτόματοι ελληνικοί υπότιτλοι για Reels/TikTok (CapCut) & AI avatars (HeyGen).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Φωνή & Παρουσιάσεις</strong></td>
+                        <td>ElevenLabs / Gamma</td>
+                        <td>Ρεαλιστικά voiceovers (ElevenLabs) και έτοιμα slides σε 1 λεπτό (Gamma).</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page-footer">
+            <span>ByteCrafters | The AI Business Playbook</span>
+            <span>Σελίδα 6</span>
+        </div>
+    </div>
+
+    <!-- ΣΕΛΙΔΑ 7: BONUS & CTA -->
+    <div class="page">
+        <div>
+            <span class="chapter-tag">Bonus Vault</span>
+            <h1>Εβδομαδιαίο Checklist & Γρήγορα Prompts</h1>
+            
+            <p>Κράτα αυτή τη σελίδα ανοιχτή δίπλα σου. Κάθε φορά που κολλάς, διάλεξε το κατάλληλο prompt, συμπλήρωσε τα κενά <code>[...]</code> και πάτα Enter:</p>
+
+            <ul class="styled-list">
+                <li><strong>Απλοποίηση θέματος:</strong> <em>«Εξήγησέ μου το [θέμα] με απλά λόγια, σαν να μιλάς σε έναν αρχάριο, χρησιμοποιώντας ένα παράδειγμα από την καθημερινή ζωή.»</em></li>
+                <li><strong>Βελτίωση κειμένου:</strong> <em>«Διόρθωσε συντακτικά και ορθογραφικά το παρακάτω κείμενο, κάνε το να ρέει πιο φυσικά και κράτα τον τόνο επαγγελματικό: [κείμενο]»</em></li>
+                <li><strong>Τίτλοι που τραβάνε κλικ:</strong> <em>«Δώσε μου 10 ελκυστικούς τίτλους για βίντεο/άρθρο με θέμα [θέμα], εστιάζοντας στην περιέργεια ή στο άμεσο όφελος.»</em></li>
+                <li><strong>Μετατροπή άρθρου σε 5 posts:</strong> <em>«Πάρε το παρακάτω κείμενο και βγάλε: 1) Ένα post για LinkedIn, 2) Ένα carousel 5 διαφανειών για Instagram, 3) Τρία σύντομα tips για Stories: [κείμενο]»</em></li>
+            </ul>
+
+            <h2>Εβδομαδιαίο Πρόγραμμα Αυτοματισμού (70 Λεπτά / Εβδομάδα)</h2>
+            <ul class="checklist">
+                <li><span class="checkbox-square"></span> <strong>Δευτέρα (15'):</strong> Ζήτα από το AI 5 ιδέες περιεχομένου για την εβδομάδα και διάλεξε τις 3 καλύτερες.</li>
+                <li><span class="checkbox-square"></span> <strong>Τρίτη (20'):</strong> Γράψε τα σενάρια ή τα κείμενα για τα posts της εβδομάδας με τη φόρμουλα R-C-T-F.</li>
+                <li><span class="checkbox-square"></span> <strong>Τετάρτη (10'):</strong> Χρησιμοποίησε το AI για να απαντήσεις σε emails, προσφορές ή follow-ups.</li>
+                <li><span class="checkbox-square"></span> <strong>Πέμπτη (15'):</strong> Ανέβασε ένα άρθρο ή τα στατιστικά σου και ζήτα σύνοψη και προτάσεις βελτίωσης.</li>
+                <li><span class="checkbox-square"></span> <strong>Παρασκευή (10'):</strong> Κάνε απολογισμό της εβδομάδας και οργάνωσε τις 3 βασικές προτεραιότητες της επόμενης.</li>
+            </ul>
+
+            <div class="cta-box">
+                <h3>Θέλεις να το Πας ένα Βήμα Παραπέρα;</h3>
+                <p>Αν θέλεις να στήσουμε μαζί εξατομικευμένους αυτοματισμούς AI για τη δική σου επιχείρηση, να εκπαιδεύσουμε την ομάδα σου ή να αναλάβουμε εξ ολοκλήρου το Website, το Social Media & TikTok Management και τις διαφημίσεις σου, η ομάδα της <strong>ByteCrafters</strong> είναι δίπλα σου.</p>
+               <span class="cta-link">Επικοινώνησε μαζί μας</span>
+            </div>
+            
+        </div>
+
+        <div class="page-footer">
+            <span>© ByteCrafters Digital Agency — Με επιφύλαξη παντός δικαιώματος</span>
+            <span>Σελίδα 7</span>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,17 +1,21 @@
 ---
 import '../styles/global.css';
-// import '../styles/layout.css';
 import '../styles/contact.css';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 ---
 
-<html lang="el">
+<html lang="el" data-theme="dark" style="color-scheme:dark">
 	<head>
 		<meta charset="utf-8" />
 		<title>Επικοινωνία | ByteCrafters</title>
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#05050a" />
         <meta name="description" content="ByteCrafters - Full-service Digital Agency. Σχεδιασμός UI/UX, Custom Web Applications και SEO Optimization.">
+		<!-- Custom SVG Favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 	</head>
 	<body class="tech-bg">
@@ -27,8 +31,8 @@ import Footer from '../components/Footer.astro';
 					<div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
 						<div>
 							<h4 style="color: var(--neon-blue); margin: 0 0 0.5rem 0;">📞 Τηλέφωνα Επικοινωνίας</h4>
-						<p style="margin: 0; color: #ffffff;">Κινητό 1: 698 262 7277</p>
-                        <p style="margin: 4px 0 0 0; color: #ffffff;">Κινητό 2: 698 031 7162</p>
+							<p style="margin: 0; color: #ffffff;">Κινητό 1: +30 698 262 7277</p>
+							<p style="margin: 4px 0 0 0; color: #ffffff;">Κινητό 2: +30 698 031 7162</p>
 						</div>
 						<div>
 							<h4 style="color: var(--neon-blue); margin: 0 0 0.5rem 0;">📩 Email</h4>
@@ -37,26 +41,73 @@ import Footer from '../components/Footer.astro';
 					</div>
 				</div>
 
-			     <!-- Web3Forms Form Integration -->
-                <form action="https://api.web3forms.com/submit" method="POST" class="tech-inputs" id="contact-form">
-                    <!-- Το Access Key σου από το Web3Forms -->
-                    <input type="hidden" name="access_key" value="180b74ba-4984-419b-a3d5-0676b92a46aa" />
+				<!-- Web3Forms Form Integration -->
+				<form action="https://api.web3forms.com/submit" method="POST" class="tech-inputs" id="contact-form">
+					<!-- Το Access Key σου -->
+					<input type="hidden" name="access_key" value="180b74ba-4984-419b-a3d5-0676b92a46aa" />
+
+					<div class="form-field">
 						<label for="brand">Όνομα / Εταιρεία</label>
-						<input type="text" id="brand" required />
+						<input type="text" id="brand" name="name" required />
 					</div>
 					<div class="form-field">
 						<label for="email">Email</label>
-						<input type="email" id="email" required />
+						<input type="email" id="email" name="email" required />
 					</div>
 					<div class="form-field">
 						<label for="message">Μήνυμα</label>
-						<textarea id="message" rows="5" required></textarea>
+						<textarea id="message" name="message" rows="5" required></textarea>
 					</div>
+
+					<!-- Honeypot για προστασία από spam -->
+					<input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
 					<button type="submit" class="btn-send-tech">Αποστολή Μηνύματος</button>
+
+					<div id="form-result" style="display: none; margin-top: 1rem; color: #00d2ff; font-weight: 600; font-size: 0.95rem; background: rgba(0,210,255,0.1); border: 1px solid rgba(0,210,255,0.3); padding: 0.75rem; border-radius: 8px;">
+						✓ Το μήνυμά σας στάλθηκε με επιτυχία!
+					</div>
 				</form>
 			</section>
 		</div>
 
 		<Footer />
+
+		<script is:inline>
+			const form = document.getElementById('contact-form');
+			const result = document.getElementById('form-result');
+
+			form.addEventListener('submit', function(e) {
+				e.preventDefault();
+				const formData = new FormData(form);
+				const object = Object.fromEntries(formData);
+				const json = JSON.stringify(object);
+				
+				result.style.display = 'block';
+				result.innerHTML = "Αποστολή μηνύματος...";
+
+				fetch('https://api.web3forms.com/submit', {
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+						'Accept': 'application/json'
+					},
+					body: json
+				})
+				.then(async (response) => {
+					let jsonResponse = await response.json();
+					if (response.status == 200) {
+						result.innerHTML = "✓ Το μήνυμά σας στάλθηκε με επιτυχία! Θα επικοινωνήσουμε μαζί σας σύντομα.";
+						form.reset();
+					} else {
+						result.innerHTML = jsonResponse.message;
+					}
+				})
+				.catch(error => {
+					console.log(error);
+					result.innerHTML = "Κάτι πήγε στραβά! Παρακαλώ δοκιμάστε ξανά αργότερα.";
+				});
+			});
+		</script>
 	</body>
 </html>
